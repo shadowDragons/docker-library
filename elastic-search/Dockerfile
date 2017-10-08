@@ -25,9 +25,9 @@ RUN set -ex; \
         gnupg \
         openssl \
         tar \
-    ; \
-    \
-    wget -O elasticsearch.tar.gz "$ELASTICSEARCH_TARBALL"; \
+    ;
+
+RUN wget -O elasticsearch.tar.gz "$ELASTICSEARCH_TARBALL"; \
     \
     if [ "$ELASTICSEARCH_TARBALL_SHA1" ]; then \
         echo "$ELASTICSEARCH_TARBALL_SHA1 *elasticsearch.tar.gz" | sha1sum -c -; \
