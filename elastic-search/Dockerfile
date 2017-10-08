@@ -74,6 +74,12 @@ VOLUME /usr/share/elasticsearch/data
 COPY docker-entrypoint.sh /
 
 
+RUN /usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head
+RUN usermod -u 1000 elasticsearch
+
+RUN /usr/share/elasticsearch/bin/plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v5.6.1/elasticsearch-analysis-ik-5.6.1.zip
+
+RUN /usr/share/elasticsearch/bin/plugin install https://github.com/medcl/elasticsearch-analysis-pinyin/releases/download/v5.6.1/elasticsearch-analysis-pinyin-5.6.1.zip
 
 EXPOSE 9200 9300
 ENTRYPOINT ["/docker-entrypoint.sh"]
