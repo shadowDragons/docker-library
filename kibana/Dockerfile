@@ -71,7 +71,7 @@ RUN set -x \
 
 ENV PATH /usr/share/kibana/bin:$PATH
 
-#RUN kibana-plugin install x-pack
+RUN kibana-plugin install x-pack
 
 COPY docker-entrypoint.sh /
 
