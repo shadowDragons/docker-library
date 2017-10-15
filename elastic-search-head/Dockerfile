@@ -17,5 +17,5 @@ RUN npm install
 COPY Gruntfile.docker.js /app/Gruntfile.docker.js
 
 EXPOSE 9100
-
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["grunt", "server", "--gruntfile", "Gruntfile.docker.js"]
