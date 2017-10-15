@@ -18,6 +18,4 @@ COPY Gruntfile.docker.js /app/Gruntfile.docker.js
 
 EXPOSE 9100
 
-CMD ["grunt", "serve", "--gruntfile", "Gruntfile.docker.js"]
-
-RUN npm start
+CMD ["grunt", "server", "--gruntfile", "Gruntfile.docker.js"]
