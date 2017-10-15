@@ -1,12 +1,5 @@
 FROM openjdk:8-jre
 
-RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
-    echo "deb http://mirrors.163.com/debian/ jessie main non-free contrib" >/etc/apt/sources.list && \
-    echo "deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list && \
-    echo "deb-src http://mirrors.163.com/debian/ jessie main non-free contrib" >>/etc/apt/sources.list && \
-    echo "deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list
-
-# grab gosu for easy step-down from root
 ENV GOSU_VERSION 1.10
 RUN set -x \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
@@ -33,8 +26,8 @@ RUN set -x \
 	&& apt-get update && apt-get install -y --no-install-recommends apt-transport-https && rm -rf /var/lib/apt/lists/* \
 	&& echo 'deb https://artifacts.elastic.co/packages/5.x/apt stable main' > /etc/apt/sources.list.d/elasticsearch.list
 
-ENV ELASTICSEARCH_VERSION 5.5.2
-ENV ELASTICSEARCH_DEB_VERSION 5.5.2
+ENV ELASTICSEARCH_VERSION 5.6.1
+ENV ELASTICSEARCH_DEB_VERSION 5.6.1
 
 RUN set -x \
 	\
