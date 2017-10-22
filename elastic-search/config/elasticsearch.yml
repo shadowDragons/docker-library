@@ -1,4 +1,5 @@
 http.host: 0.0.0.0
+http.cors.allow-headers: Authorization
 
 # Uncomment the following lines for a production cluster deployment
 #transport.host: 0.0.0.0
